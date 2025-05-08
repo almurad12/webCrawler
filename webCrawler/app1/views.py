@@ -61,3 +61,10 @@ def search_countries(request, name_value):
 
     serializer = CountrySerializer(countries, many=True)
     return Response(serializer.data)
+
+##web Interface url
+def country_list(request):
+    # Fetch all countries from the database (or API)
+    countries = CountryDetails.objects.all()
+    print(countries)
+    return render(request, 'country_list.html', {'countries': countries})
