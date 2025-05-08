@@ -1,5 +1,6 @@
 from django.urls import path,include
 from . import views
+# from django.contrib.auth.views import LogoutView
 urlpatterns = [
    
     ## all Details of Country
@@ -14,4 +15,8 @@ urlpatterns = [
     path('countries/name/<str:name_value>/', views.search_countries, name='countries-by-common-name'),
     #Web interface url
     path('countriesdashboard/', views.country_list, name='country_list'),
+    ##Authentication
+    path('login/', views.user_login, name='login'),
+    path('register/', views.register, name='register'),
+   path('logout/', views.custom_logout, name='logout'),
 ]
